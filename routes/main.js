@@ -3,8 +3,15 @@ const express = require("express");
 const router = express.Router();
 
 // Define our data
-var shopData = {shopName: "Drinks4U", 
-                productCategories:["Beer", "Wine", "Soft Drinks", "Hot Drinks"]}
+var shopData = {
+    shopName: "Drinks4U",
+    productCategories: ["Beer", "Wine", "Soft Drinks", "Hot Drinks"],
+    shops: [
+        { location: "City Centre", manager: "Alex Johnson", address: "12 High Street, City Centre, AB12 3CD" },
+        { location: "Riverside", manager: "Priya Shah", address: "44 Riverside Walk, Riverside, AB45 6EF" },
+        { location: "University Quarter", manager: "Liam O'Connor", address: "3 Campus Rd, University Quarter, AB78 9GH" }
+    ]
+}
 
 
 // Handle our routes

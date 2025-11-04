@@ -7,7 +7,19 @@
   <body>
     <div class="panel">
       <h1>About <%=shopName%></h1>
-      <p>We sell all sorts of drinks</p>
+      <p>We sell all sorts of drinks to cater to your needs.</p>
+      <% if (typeof shops !== 'undefined' && shops.length) { %>
+        <h2>Our shop locations</h2>
+        <ul>
+          <% shops.forEach(function(shop){ %>
+            <li>
+              <strong><%= shop.location %></strong><br/>
+              Manager: <%= shop.manager %><br/>
+              Address: <%= shop.address %>
+            </li>
+          <% }) %>
+        </ul>
+      <% } %>
     </div>
   </body>
 </html>

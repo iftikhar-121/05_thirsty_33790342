@@ -8,8 +8,8 @@ var shopData = {
     productCategories: ["Beer", "Wine", "Soft Drinks", "Hot Drinks"],
     shops: [
         { location: "City Centre", manager: "Alex Johnson", address: "12 High Street, City Centre, AB12 3CD" },
-        { location: "Riverside", manager: "Priya Shah", address: "44 Riverside Walk, Riverside, AB45 6EF" },
-        { location: "University Quarter", manager: "Liam O'Connor", address: "3 Campus Rd, University Quarter, AB78 9GH" }
+        { location: "Riverside", manager: "Priya Shara", address: "44 Riverside Walk, Riverside, AB45 6EF" },
+        { location: "University Quarter", manager: "Liam Davids", address: "3 Campus Rd, University Quarter, AB78 9GH" }
     ]
 }
 
@@ -45,6 +45,24 @@ router.post("/registered", (req,res) => {
         return res.status(400).send("Please enter a valid email address.");
     }
     res.send('Hello ' + first + ' ' + last + ' you are now registered!. We will send an email to you at ' + email);
+});
+
+// Survey routes
+router.get("/survey", (req, res) => {
+    res.render("survey.ejs", shopData);
+});
+
+router.post("/survey_submitted", (req, res) => {
+    const { first, last, email, age, category, student } = req.body;
+    const survey = {
+        first: first || "",
+        last: last || "",
+        email: email || "",
+        age: age || "",
+        category: category || "",
+        student: student ? "Yes" : "No"
+    };
+    res.render("survey_result.ejs", Object.assign({}, shopData, { survey }));
 });
 
 // Export the router object so index.js can access it

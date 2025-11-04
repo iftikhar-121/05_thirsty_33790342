@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+  <head>
+    <title><%=shopName%> - Survey Results</title>
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <div class="panel">
+      <h1>Survey responses</h1>
+      <p>Thank you for completing the survey.</p>
+      <h2>Details</h2>
+      <ul>
+        <li><strong>First name:</strong> <%= survey.first %></li>
+        <li><strong>Surname:</strong> <%= survey.last %></li>
+        <li><strong>Email:</strong> <%= survey.email %></li>
+        <li><strong>Age:</strong> <%= survey.age %></li>
+        <li><strong>Category:</strong> <%= survey.category %></li>
+        <li><strong>Student:</strong> <%= survey.student %></li>
+      </ul>
+    </div>
+  </body>
+</html>

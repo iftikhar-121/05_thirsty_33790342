@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+  <head>
+    <title><%=shopName%> - Survey</title>
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <div class="panel">
+      <h1>Customer Survey</h1>
+      <p>Please fill in the short survey below.</p>
+      <form method="POST" action="/survey_submitted" class="form-grid">
+        <div class="row">
+          <label for="first">First name:</label>
+          <input id="first" type="text" name="first" placeholder="first name" required/>
+        </div>
+        <div class="row">
+          <label for="last">Surname:</label>
+          <input id="last" type="text" name="last" placeholder="surname" required/>
+        </div>
+        <div class="row">
+          <label for="email">Email address:</label>
+          <input id="email" type="email" name="email" placeholder="email" required/>
+        </div>
+        <div class="row">
+          <label for="age">How old are you?</label>
+          <input id="age" type="text" name="age" placeholder="e.g., 21" />
+        </div>
+        <div class="row">
+          <label>Which drinks category do you consume?</label>
+          <div>
+            <% if (productCategories && productCategories.length) { %>
+              <% productCategories.forEach(function(cat, idx){ %>
+                <div>
+                  <input type="radio" id="cat_<%= idx %>" name="category" value="<%= cat %>" />
+                  <label for="cat_<%= idx %>"><%= cat %></label>
+                </div>
+              <% }) %>
+            <% } %>
+          </div>
+        </div>
+        <div class="row">
+          <label for="student">Are you a student?</label>
+          <input id="student" type="checkbox" name="student" value="yes" />
+        </div>
+        <div class="form-actions">
+          <input type="submit" value="Submit" />
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
